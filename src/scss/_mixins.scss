@@ -1,0 +1,32 @@
+//fonts
+$title:'Playfair Display SC',serif;
+$text:'Raleway', sans-serif;
+$accent:'Alumni Sans', sans-serif;
+
+//colors
+$gold:#C7A046;
+$white:#FFF;
+
+
+
+
+
+@mixin section($pt,$pb) {
+    padding: #{$pt + px} $sp #{$pb + px} $sp;
+    @media (max-width:767px){
+        padding-top: calc(#{$pt + px}/1.5);
+        padding-bottom: calc(#{$pb + px}/1.5);
+    }
+    @media (max-width:575px){
+        padding-top: calc(#{$pt + px}/2);
+        padding-bottom: calc(#{$pb + px}/2);
+    }
+}
+
+
+
+@mixin fontSize($pcSize, $mobSize,$maxWidth) {
+    $addSize: $pcSize - $mobSize;
+    $maxWidth: $maxWidth - 320;
+    font-size: calc(#{$mobSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth}));
+}
